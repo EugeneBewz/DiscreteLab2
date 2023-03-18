@@ -1,6 +1,5 @@
 """
 Huffman algorythm for encoding messages
-
 e.g. ANARONTERRAS ~ 00110010010011010101101010000111
 """
 
@@ -10,7 +9,6 @@ def read_file(filename: str) -> str:
     Read file with message and return list of lines
     which will be encoded with Huffman algorithm. For now,
     we will assume that message consists of one line.
-
     :param filename: file with text to open
     :return: list of message lines
     """
@@ -23,7 +21,6 @@ def count_symbols(message_to_encode: str) -> dict:
     Count every symbol in text and return a dictionary
     that will represent the frequency of every
     symbol, including spaces and punctuation.
-
     :param message_to_encode: a message to be encoded; generally it's the whole file in one string
     :return: dictionary (e.g. {"A": 0.25, "B": 0.17, ...})
     """
@@ -60,7 +57,6 @@ class HuffmanTree:
     def child_nodes(self):
         """
         Returns children of the current node
-
         :return: left and right children
         """
         return self.left_branch, self.right_branch
@@ -73,7 +69,6 @@ class HuffmanTree:
         Encode the alphabet, using Huffman algorithm.
         Generates a code for each symbol and replaces
         every character with it.
-
         :param node: a node to be encoded
         :param b_str: a string that will end up being a code for symbol
         :return: an encoded message
@@ -90,7 +85,6 @@ class HuffmanTree:
         """
         Decode message encoded with Huffman algorithm. It adds digits and finds the pattern
         in given dictionary. If found - replace with a corresponding key.
-
         :param message: encoded message to decode
         :param scrypt: a dictionary {symbol: code}
         :return: a decoded message
@@ -117,7 +111,6 @@ def build_huffman_tree(nodes: list) -> HuffmanTree:
     symbol count or percentage is valid.
     The function will return a HuffmanTree object with
     data about nodes and their children.
-
     :param nodes: list of nodes and their number (here -- percentage)
     :return: HuffmanTree object
     """
@@ -134,7 +127,6 @@ def build_huffman_tree(nodes: list) -> HuffmanTree:
 def write_file(write_to: str, write_the: str, scrypt: dict) -> None:
     """
     Write an encoded file according to the Huffman code.
-
     :param write_to: destination to output file
     :param write_the: data to write
     :param scrypt: dictionary of symbols and their percentages: values show
