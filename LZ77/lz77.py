@@ -1,0 +1,3 @@
+"""
+LZ77 compression
+"""
